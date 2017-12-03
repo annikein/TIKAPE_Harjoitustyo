@@ -1,0 +1,79 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Tarvikkeet</title>
+        <meta charset="utf-8" />
+    </head>
+
+   <body>
+        <h1>Tarvikkeet</h1>
+
+      <table>
+
+            <tr>
+                <td  valign="top" align="left"><b>Tarvike</b></td>
+                <td  valign="top" align="left"><b>Koko</b></td> 
+                <td  valign="top" align="left"><b>Pituus</b></td> 
+            </tr>
+            <tr>
+                <td  valign="top" align="left">
+            <ul style="list-style-type:none">
+            <li th:each="tarvike : ${tarvikkeet}">
+                    <span th:text="${tarvike.tyyppi}">Tyyppi</span>
+            </li>
+            </ul>
+                </td>
+              <td  valign="top" align="left">
+                   <ul style="list-style-type:none">
+            <li th:each="tarvike : ${tarvikkeet}">
+                    <span th:text="${tarvike.koko}">Koko</span>
+            </li>
+            </ul>
+            </td>    
+            <td  valign="top" align="left">
+                   <ul style="list-style-type:none">
+            <li th:each="tarvike : ${tarvikkeet}">
+                    <span th:text="${tarvike.pituus}">Pituus</span>
+            </li>
+            </ul>
+            </td>    
+                  
+            </tr>
+        </table>
+                   <a href="/">Paluu etusivulle</a>      
+
+
+            <h2>Lis&auml;&auml; uusi tarvike</h2>
+        
+
+        <form method="POST" action="/tarvikkeet">
+            Tarvike *:     
+             <select name="tyyppi">
+            <option value="puikot">puikot</option>
+            <option value="sukkapuikot">sukkapuikot</option>
+            <option value="pyöröpuikot">py&ouml;r&ouml;puikot</option>
+            <option value="virkkuukoukku">virkkuukoukku</option>
+           <option value="parsinneula">parsinneula</option>
+            </select> <br> </br> 
+            Koko:   
+            <input type="text" name="koko"/> (esim. 2,5 mm)<br> </br> 
+            Pituus: 
+            <input type="text" name="pituus"/> (esim. 80 cm)<br> </br> 
+            
+            * pakollinen kentt&auml;<br> </br> 
+           
+            
+            
+            <input type="submit" value="Lis&auml;&auml;"/>
+        </form>
+            
+     
+            <p>   <a href="/">Paluu etusivulle</a>          </p>   
+   
+    <br></br> 
+      
+            
+    </body>
+</html>
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Langat</title>
+        <meta charset="utf-8" />
+    </head>
+
+   <body>
+        <h1>Langat</h1>
+
+
+        <table>
+
+            <tr>
+                <td  valign="top" align="left"><b>Nimi</b></td>
+                <td  valign="top" align="left"><b>V&auml;ri</b></td> 
+                <td  valign="top" align="left"><b>V&auml;rikoodi</b></td> 
+                <td  valign="top" align="left"><b>Valmistaja</b></td> 
+                <td valign="top" align="left"><b>Materiaali</b></td> 
+                <td valign="top" align="left"><b>Paksuus g/m</b></td>  
+            </tr>
+            <tr>
+                <td  valign="top" align="left">
+            <ul style="list-style-type:none"> 
+            <li th:each="lanka : ${langat}">
+                    <span th:text="${lanka.nimi}">Nimi</span>
+            </li>
+            </ul>
+                </td>
+              <td  valign="top" align="left">
+                   <ul style="list-style-type:none">
+            <li th:each="lanka : ${langat}">
+                    <span th:text="${lanka.vari}">Vari</span>
+            </li>
+            </ul>
+            </td>    
+            <td  valign="top" align="left">
+                   <ul style="list-style-type:none">
+            <li th:each="lanka : ${langat}">
+                    <span th:text="${lanka.varikoodi}">Vari</span>
+            </li>
+            </ul>
+            </td>    
+                  <td  valign="top" align="left">
+                   <ul style="list-style-type:none">
+            <li th:each="lanka : ${langat}">
+                    <span th:text="${lanka.valmistaja}">Vari</span>
+            </li>
+            </ul>
+            </td> 
+                 <td  valign="top" align="left">
+                   <ul style="list-style-type:none">
+            <li th:each="lanka : ${langat}">
+                    <span th:text="${lanka.materiaali}">Vari</span>
+            </li>
+            </ul>
+            </td> 
+                 <td  valign="top" align="left">
+                   <ul style="list-style-type:none">
+            <li th:each="lanka : ${langat}">
+                    <span th:text="${lanka.paksuus}">Vari</span>
+            </li>
+            </ul>
+            </td>   
+                
+            </tr>
+        </table>
+               <a href="/">Paluu etusivulle</a>      
+        
+        
+        
+        
+        <h2>Lis&auml;&auml; uusi lanka</h2>
+        
+
+        <form method="POST" action="/langat">
+            Nimi *:         
+            <input type="text" name="nimi"/> <br> </br> 
+            V&auml;ri: 
+            <input type="text" name="vari"/><br></br> 
+            V&auml;rikoodi: 
+            <input type="text" name="varikoodi"/><br> </br> 
+            Valmistaja: 
+            <input type="text" name="valmistaja"/><br></br> 
+            Materiaali: 
+            <input type="text" name="materiaali"/><br> </br> 
+            Paksuus (g/m): 
+            <input type="text" name="paksuus"/><br> </br> 
+            * pakollinen kentt&auml;<br></br> 
+            <input type="submit" value="Lis&auml;&auml;"/>
+        </form>
+        <br></br> 
+        <p> <a href="/">Paluu etusivulle</a>      </p>
+        
+    </body>
+</html>

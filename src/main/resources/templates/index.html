@@ -1,0 +1,116 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Neule ja virkkausohjeet</title>
+        <meta charset="utf-8" />
+    </head>
+
+   <body>
+        <h1>Neule- ja virkkausohjeet</h1>
+
+         
+        
+      <ul>
+            <li th:each="malli : ${mallit}">
+                <a th:href="@{~/malli/{id}(id=${malli.id})}">
+                    <span th:text="${malli.nimi}">Malli</span>
+                </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                  <a th:href="@{~/delete/{id}(id=${malli.id})}">
+                       <span th:text="(poista)">poista</span>
+                  </a>
+            </li>
+        </ul>
+        
+        <h2>Langat ja tarvikkeet:</h2>
+        
+            <ul>
+                    <li>
+                 <a href="langat">Tarkastele ja lis&auml;&auml; lankoja</a>             
+            </li>
+            <li>
+                 <a href="tarvikkeet">Tarkastele ja lis&auml;&auml; tarvikkeita</a>             
+            </li>
+        </ul>
+
+        
+        
+        <h2>Lis&auml;&auml; uusi malli:</h2><br></br>
+            <form method="POST" action="/">
+            Nimi:         
+            <input type="text" name="nimi"/> <br> </br> 
+            Tyyppi: 
+            <select name="tyyppi">
+            <option value="villasukat">villasukat</option>
+            <option value="lapaset ja sormikkaat">lapaset ja sormikkaat</option>
+            <option value="yläosat">yl&auml;osat</option>
+            <option value="alaosat">alaosat</option>
+            <option value="pipot, hatut ja huivit">pipot, hatut ja huivit</option>
+            <option value="muut vaatteet ja asusteet">muut vaatteet ja asusteet</option>
+            <option value="peitot">peitot</option>
+            <option value="muut">muut</option>
+            </select> <br> </br> 
+            <input type="submit" value="Lis&auml;&auml; uusi malli"/>
+        </form>
+        <br></br>
+            
+        
+        
+        
+        
+         <h2>Lis&auml;&auml; mallille koot, langat, tarvikeet ja ohje</h2>
+
+         <h2><font color="red">T&auml;m&auml; loppuosan post-toiminnallisuus EI viel&auml; toimi. J&auml;i kesken.</font></h2><br></br>
+      
+            
+            Valitse malli:
+
+            <form action="/" method="post">
+                    <select name="malliid">
+                        <option th:each="malli: ${mallit}" th:value="${malli.id}" th:text="${malli.nimi}">
+                            Malli
+                        </option>
+                    </select>
+            <br> </br> 
+       
+            
+            Koko:     
+            <input type="text" name="koko"/>
+            <br></br>
+            Lanka:
+            <select name="lankaid">
+                        <option th:each="lanka: ${langat}" th:value="${lanka.id}" th:text="${lanka.teksti}">
+                            Langat
+                        </option>
+                    </select>
+                 
+            <input type="text" name="lmaara"/> grammaa (pakollinen)
+            <br></br>
+            Tarvikkeet:
+           
+            <select name="tarvikeid">
+                        <option th:each="tarvike: ${tarvikkeet}" th:value="${tarvike.id}" th:text="${tarvike.teksti}">
+                            Tarvike
+                        </option>
+                    </select>
+            <input type="text" name="tmaara"/> grammaa (pakollinen)
+            <br></br>
+            Ohje:
+            
+       
+            <input style="width:450px" type="text" name="ohje"/> <br></br>
+        
+            <input type="submit" value="Lis&auml;&auml; tiedot"/>
+     
+            
+            </form>
+            
+<br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+
+      
+    </body>
+</html>
