@@ -1,0 +1,24 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Delete</title>
+        <meta charset="utf-8" />
+    </head>
+
+   <body>
+        <h3>Haluatko varmasti poistaa mallin</h3>
+
+             
+        <h3 th:text="${malli.nimi}" th:value="${malli.id}">Mallin nimi</h3>
+            
+        <form th:action="@{~/delete/{id} (id=${malli.id})}" method="post">
+            <input type="submit" value="Poista"/>
+            
+        </form>
+        <br></br>
+          <a href="/">Paluu etusivulle</a>     
+
+      
+    </body>
+</html>

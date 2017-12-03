@@ -1,0 +1,119 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Malli edit</title>
+        <meta charset="utf-8" />
+    </head>
+
+   <body>
+       
+        <h2 th:text="${malli.nimi}" th:value="${malli.id}">Mallin nimi</h2>
+      
+       
+        <table border="1"><tr>
+        <td>Koko
+        </td>
+               
+               
+        <td>
+            
+        <p th:text="${malli.koko}" th:value="${malli.koko}">Mallin koko</p> 
+        </td>
+               
+               
+    </tr>
+           
+           
+        <tr><td>
+        Langat
+        </td>
+        
+        <td>
+            
+            <table>
+            <tr>
+                <th>Lanka</th>
+                <th>V&auml;ri</th>
+                <th>V&auml;rikoodi</th>
+                <th>M&auml;&auml;r&auml;</th>
+            </tr>
+                <tr>
+            <td  valign="top" align="left">
+                <ul style="list-style-type:none">
+                <li th:each="lanka : ${langat}">
+                    <span th:text="${lanka.nimi}">Lanka</span>
+                </li>
+                </ul>
+            </td>
+            <td  valign="top" align="left">
+                <ul style="list-style-type:none">
+                <li th:each="lanka : ${langat}">
+                    <span th:text="${lanka.vari}">Väri</span>
+                </li>
+                </ul>
+            </td>    
+            <td  valign="top" align="left">
+                <ul style="list-style-type:none">
+                <li th:each="lanka : ${langat}">
+                    <span th:text="${lanka.varikoodi}">Värikoodi</span>
+                </li>
+                </ul>
+            </td>    
+                <td  valign="top" align="left">
+                <ul style="list-style-type:none">
+                <li th:each="maara : ${maarat}">
+                    <span th:text="${maara.maara}">Määrä</span>
+                </li>
+                </ul>
+            </td></tr>
+            </table>
+               
+        </td>
+   </tr>
+        <tr><td>
+        Tarvikkeet
+        </td><td>
+       
+            <table>
+                <tr>
+                <th>Tarvike</th>
+                <th>Koko</th>
+                <th>Pituus</th>
+
+            </tr>
+            <tr>
+            <td  valign="top" align="left">
+            <ul style="list-style-type:none">
+            <li th:each="tarvike : ${tarvikkeet}">
+                <span th:text="${tarvike.tyyppi}">Tyyppi</span>
+            </li>
+            </ul>
+            </td>
+            <td  valign="top" align="left">
+            <ul style="list-style-type:none">
+            <li th:each="tarvike : ${tarvikkeet}">
+                <span th:text="${tarvike.koko}">Koko</span>
+            </li>
+            </ul>
+            </td>    
+            <td  valign="top" align="left">
+            <ul style="list-style-type:none">
+            <li th:each="tarvike : ${tarvikkeet}">
+                    <span th:text="${tarvike.pituus}">Pituus</span>
+            </li>
+            </ul>
+            </td> 
+                
+            </tr>
+            </table>
+        
+        </td></tr>
+        <tr><td>
+        Ohje
+        </td><td>
+        <p th:text="${malli.ohje}" th:value="${malli.ohje}">Mallin ohje</p> 
+       
+        </td></tr></table>
+        </body>
+</html>
